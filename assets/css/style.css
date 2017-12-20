@@ -1,76 +1,170 @@
-/* BASIC STYLES FOR PROTOTYPING */
-{font-size: 20px;
-  }
-section#body div,
-section#header div,
-section#content div,
-section#sidebar div,
-section#resources div {
-  min-height: 250px;
+/*Grid Layout*/
+
+section#title div,
+section#dataviz div,
+section#social div,
+section#datavizexp div,
+section#personal div,
+section#person div{
+   min-height: 350px;
+   padding-bottom: 50px;
+   padding-top: 50px;
+ }
+
+ /* header stuff*/
+ h1 {background: #910000A0;
+   border: 2px solid #78B9E3;
+   color: white;
+   font-size: 32px;
+   text-align: center}
+   padding: 15px;
+ h1 {
+   margin-bottom: 15px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   h2 {color:white;
+   font-size: 24px;}
+ }
+
+/*Grid Display*/
+section#title div{
+  display:block;
+  grid-gap: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+section#dataviz div{
+  display:block;
+  grid-gap: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+section#social {
+  display:block;
+  grid-gap: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+section#datavizexp {
+  display:block;
+  grid-gap: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+section#personal {
+  display:block;
+  grid-gap: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+section#person {
+  display:block;
+  grid-gap: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+/*Font Stuff*/
+h1 {color: white;
+  font-size: 32px;}
+  text-shadow: 3px 2px red;
+h1 {
+  min-height: 150px;
   margin-bottom: 15px;
 }
-section#body div {
-  display:grid;
-  grid-gap: 15px;
-  grid_template_columns: 1fr 1fr;
-  background: #573544;
-  color: white;
-  font-size: 32px;
+h2 {color:white;
+font-size: 24px;}
+h2{
+  margin-bottom: 10px;
 }
-section#header div {
-  display:grid;
-  grid-gap: 15px;
-  grid_template_columns: 1fr 1fr;
-  background: #8CBEB2;
-  color: white;
-  font-size: 32px;
+/*Image Settings*/
+img {
+  width: 100%;
 }
-section#sidebar div {
-  display:grid;
-  grid-gap: 15px;
-  grid_template_columns: 1fr 1fr;
-  background: #F2EBBF;
-  font-size: 32px;
+section#personal div.content-wrapper img {
+ width: 100px;
+ float: left;
+ margin-right: 30px;
 }
 
-/* GRID/LAYOUT STYLES */
-section#personal,
-section#social {
- display: grid;
- grid-gap: 15px;
- /*  Experiment:
-     Change auto-fit to auto-fill  */
- grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+/* Fix iframe height issue */
+ div.video-container {
+   position: relative;
+   width: 100%;
 }
-/* Media query for #personal & #social */
-@media screen and (min-width:1080px) {
- section#personal {
-   /*  Experiment:
-     Change 400px to 40%  */
-   grid-template-columns: 40% 1fr;
-   }
-   section#social {
-     /*  Experiment:
-       Change 400px to 40%  */
-     grid-template-columns: 1fr 40%;
-   }
+div.video-container iframe {
+   position: absolute;
+   top: 0; left: 0;
+   margin-left: 15px;
+   width: 80%;
+   height: 80%;
 }
-/*
-  Query for social grid track.
-  Used element inspector to find
-  the 670px breaking point.
 
-  Query asks: If user is on a _screen_
-    and the screen is _less than 670px_,
-    then use the styles within.
-*/
-@media screen and (max-width: 670px) {
-  section#social div.content-wrapper{
-    grid-row: 2;
-    grid-column: 1;
-  }
-  section#social div.media-wrapper{
-    grid-row: 1;
-    grid-column: 1;
-  }
+/* Data-viz*/
+section#dataviz div{
+  grid-area: sidebar;
+  width: 400px;
+  height: 300px;
+  float:left;
+  background-color: #910000A0;
+  border: 2px solid #78B9E3;
+  padding: 15px;
+  display:block;
+  grid-gap: 250px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+
+}
+
+/* Social*/
+section#social div{
+  grid-area: section;
+  width: 400px;
+  height: 300px;
+  float:right;
+  background-color: #910000A0;
+  border: 2px solid #78B9E3;
+  padding: 15px;
+  display:grid;
+  grid-gap: 250px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))
+}
+
+section#datavizexp div{
+  grid-area: section;
+  width: 600px;
+  height: 300px;
+  float:center;
+  background-color: #910000A0;
+  border: 2px solid #78B9E3;
+  padding: 15px;
+  display:grid;
+  grid-gap: 250px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))
+}
+
+/* Personal */
+section#personal div{
+  grid-area: section;
+  background-color: #910000A0;
+  border: 2px solid #78B9E3;
+  padding: 15px;
+  display:grid;
+  grid-gap: 250px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))
+}
+section#person div{
+  grid-area: sidebar;
+  height: 700px;
+  background-color: #910000A0;
+  border: 2px solid #78B9E3;
+  padding: 15px;
+  display:grid;
+  grid-gap: 250px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))
 }
